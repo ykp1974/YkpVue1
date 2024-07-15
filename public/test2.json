@@ -1,1 +1,12 @@
-{"This":"is test2 json."}
+data: {
+    parVals: [
+        {
+        text: "123パラメータ1",
+        value: "値1"
+        },
+        {
+        text: "456パラメータ2",
+        value: "値2"
+        },
+    ]
+}
