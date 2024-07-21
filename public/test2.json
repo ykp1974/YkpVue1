@@ -1,5 +1,5 @@
 data: {
-    parVals: [
+    parVals: {
       {
         text: "123パラメータ1",
         value: "値1"
@@ -8,5 +8,5 @@ data: {
         text: "456パラメータ2",
         value: "値2"
       }
-    ]
+    }
 }
