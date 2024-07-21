@@ -1,19 +1,4 @@
 data: {
-    title: "Vue.js アプリケーションへようこそ！",
-    links: [
-      {
-        text: "コア ドキュメント",
-        href: "https://vuejs.org"
-      },
-      {
-        text: "フォーラム",
-        href: "https://forum.vuejs.org"
-      },
-      {
-        text: "Community Chat",
-        href: "https://chat.vuejs.org"
-      },
-      ],
     parVals: [
       {
         text: "123パラメータ1",
@@ -22,6 +7,6 @@ data: {
       {
         text: "456パラメータ2",
         value: "値2"
-      },
+      }
     ]
-  }
+}
