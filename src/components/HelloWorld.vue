@@ -89,7 +89,6 @@ export default {
     axios.get('/test2.json')
       .then(response => {
         this.data.parVals = response.data;
-        console.log('this.data.parVals->'+this.data.parVals);
       })
       .catch(error => {
         console.error('Error fetching data: ', error);
@@ -100,6 +99,7 @@ export default {
     const reader = new FileReader();
 
     reader.onload = (event) => {
+      console.log('this.data.parVals-=->'+this.data.parVals);
       const jsonData = JSON.parse(event.target.result);
       this.data.parVals = jsonData;
     };
