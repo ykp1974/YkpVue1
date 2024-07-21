@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   name: 'HelloWorld',
   props: {
@@ -74,8 +75,8 @@ export default {
     }
   },  
   mounted() {
-    // // JSONデータのフェッチ処理
-    // fetch('c://wk//ykptest.json')
+    // JSONデータのフェッチ処理
+    // fetch('https://vuetest1.netlify.app/test2.json')
     //   .then(response => response.json())
     //   .then(jsonData => {
     //     this.data.parVals = jsonData;
@@ -83,8 +84,19 @@ export default {
     //   .catch(error => {
     //     console.error(error);
     //   });
+    // JSONデータのフェッチ処理
+    // axios.get('https://vuetest1.netlify.app/test2.json')
+    axios.get('/test2.json')
+      .then(response => {
+        this.data.parVals = response.data;
+        console.log('this.data.parVals->'+this.data.parVals);
+      })
+      .catch(error => {
+        console.error('Error fetching data: ', error);
+      });
+
     // FileReader APIを使用してローカルファイルを読み込む
-    const file = new File(['[JSONデータ]'], 'ykptest.json');
+    const file = new File([''], 'ykptest.json'); // 空の文字列を渡す
     const reader = new FileReader();
 
     reader.onload = (event) => {
