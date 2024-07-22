@@ -100,7 +100,7 @@ export default {
 
     reader.onload = (event) => {
       console.log('this.data.parVals-=->'+this.data.parVals);
-      const jsonData = JSON.parse(event.target.result);
+      const jsonData = JSON.parse(this.data.parVals);
       this.data.parVals = jsonData;
     };
     reader.onerror = (error) => {
