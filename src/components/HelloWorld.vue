@@ -88,7 +88,9 @@ export default {
     // axios.get('https://vuetest1.netlify.app/test2.json')
     axios.get('/test2.json')
       .then(response => {
-        this.data.parVals = response.data;
+        // this.data.parVals = response.data;
+        const jsonData = JSON.parse(response.data);
+        this.data.parVals = jsonData;
         console.log('this.data.parVals=>'+this.data.parVals);
       })
       .catch(error => {
@@ -96,6 +98,18 @@ export default {
       });
 
     // FileReader APIを使用してローカルファイルを読み込む
+    const file = new File([''], 'ykptest.json'); // 空の文字列を渡す
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      console.log('this.data.parVals-=->'+this.data.parVals);
+      const jsonData = JSON.parse(this.data.parVals);
+      this.data.parVals = jsonData;
+    };
+    reader.onerror = (error) => {
+      console.error(error);
+    };
+    reader.readAsText(file);
   },
   methods: {
     handleButtonClick(event) {
