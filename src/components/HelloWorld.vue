@@ -95,18 +95,6 @@ export default {
       });
 
     // FileReader APIを使用してローカルファイルを読み込む
-    const file = new File([''], 'ykptest.json'); // 空の文字列を渡す
-    const reader = new FileReader();
-
-    reader.onload = (event) => {
-      console.log('this.data.parVals-=->'+this.data.parVals);
-      const jsonData = JSON.parse(this.data.parVals);
-      this.data.parVals = jsonData;
-    };
-    reader.onerror = (error) => {
-      console.error(error);
-    };
-    reader.readAsText(file);
   },
   methods: {
     handleButtonClick(event) {
