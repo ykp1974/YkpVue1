@@ -89,7 +89,7 @@ export default {
     axios.get('/test2.json')
       .then(response => {
         // this.data.parVals = response.data;
-        const jsonData = JSON.parse(response.data);
+        const jsonData = JSON.stringify(response.data);
         this.data.parVals = jsonData;
         console.log('this.data.parVals=>'+this.data.parVals);
       })
