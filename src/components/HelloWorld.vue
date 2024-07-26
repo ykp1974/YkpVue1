@@ -30,8 +30,8 @@
     <!-- ボタンを追加 -->
     <button id="btn1" v-on:click="handleButtonClick" test="123">クリック1</button>
     <button id="btn2" v-on:click="handleButtonClick" test="456">クリック2</button>
-    <template v-for="link in data.parVals" :key="link.text">
-      <button v-on:click="handleButtonClick" :test="link.text">{{ link.text }}がクリックされました！</button>
+    <template v-for="link in data.parVals2" :key="link.text">
+      <button v-on:click="handleButtonClick" :test="link.text">{{ link.text }}</button>
     </template>
 </div>
 </template>
@@ -70,46 +70,25 @@ export default {
             text: "456パラメータ2",
             value: "値2"
           },
+        ],
+        parVals2: [
         ]
       }
     }
   },  
-  mounted() {
-    // JSONデータのフェッチ処理
-    // fetch('https://vuetest1.netlify.app/test2.json')
-    //   .then(response => response.json())
-    //   .then(jsonData => {
-    //     this.data.parVals = jsonData;
-    //   })
-    //   .catch(error => {
-    //     console.error(error);
-    //   });
-    // JSONデータのフェッチ処理
-    // axios.get('https://vuetest1.netlify.app/test2.json')
+  mounted : function(){
     axios.get('/test2.json')
       .then(response => {
-        // this.data.parVals = response.data;
-        const jsonData = JSON.stringify(response.data);
-        this.data.parVals = jsonData;
-        console.log('this.data.parVals=>'+this.data.parVals);
+        response.data.forEach(element => {
+          this.data.parVals2.push({
+            text: element.text,
+            value: element.value
+          });
+        });
       })
       .catch(error => {
         console.error('Error fetching data: ', error);
       });
-
-    // FileReader APIを使用してローカルファイルを読み込む
-    const file = new File([''], 'ykptest.json'); // 空の文字列を渡す
-    const reader = new FileReader();
-
-    reader.onload = () => {
-      console.log('this.data.parVals-=->'+this.data.parVals);
-      const jsonData = JSON.parse(this.data.parVals);
-      this.data.parVals = jsonData;
-    };
-    reader.onerror = (error) => {
-      console.error(error);
-    };
-    reader.readAsText(file);
   },
   methods: {
     handleButtonClick(event) {
