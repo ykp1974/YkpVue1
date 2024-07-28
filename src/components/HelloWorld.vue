@@ -77,13 +77,18 @@ export default {
     }
   },  
   mounted : function(){
-    axios.get('/test2.json')
+    axios.get('https://script.google.com/macros/s/AKfycbzCSMZiatyG-DGQCba9p6ct_K-ncyaUIX0aPtAEC5E67uVh33qizhjIFq7G9ullO_Y/exec')
       .then(response => {
-        response.data.forEach(element => {
-          this.data.parVals2.push({
-            text: element.text,
-            value: element.value
-          });
+        // document.getElementById('spn1').textContent = response.data;
+        // response.data.forEach(element => {
+        //   this.data.parVals2.push({
+        //     text: element.text
+        //     ,
+        //     value: element.value
+        //   });
+        // });
+        Object.keys(response.data).forEach(key => {
+          document.getElementById('spn1').textContent = '取得情報==>'+response.data[key];
         });
       })
       .catch(error => {
