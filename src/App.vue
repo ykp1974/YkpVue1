@@ -1,7 +1,7 @@
 <template>
   <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
   <!-- <HelloWorld msg="本日のオーダー"/> -->
-  <OrderList msg="@@@ 本日のオーダー @@@"/>
+  <OrderList msg="@@@ 直近のオーダー @@@"/>
 </template>
 
 <script>
