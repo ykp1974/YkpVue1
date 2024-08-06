@@ -59,7 +59,7 @@ export default {
   methods: {
   handleButtonClick() {
     this.orderLoading = true;
-    axios.get('https://script.google.com/macros/s/AKfycbwre0CwoBR9WGOgW90lTR92O6f8aJlFtxLijIfXM2L5YD1DXPkwp7suO29tlVR7Uw/exec')
+    axios.get('https://script.google.com/macros/s/AKfycbyfNO4Id7uY1_NSaLDiGJzAXY-lKwk7zmDCMxq85l9bi9JAIstDMu7_gk4MRedfMso/exec')
       .then(response => {
         // JSONを日付で降順にソート
         const sortedData = response.data.sort((a, b) => new Date(b.date) - new Date(a.date));
